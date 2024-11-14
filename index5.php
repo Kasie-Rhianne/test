@@ -3,7 +3,7 @@
 session_start();
 require_once 'auth.php';
 
-// Check if user is logged in
+// DUMB COMMENT
 if (!is_logged_in()) {
     header('Location: login.php');
     exit;
