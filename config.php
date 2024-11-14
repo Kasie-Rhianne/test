@@ -5,6 +5,7 @@ $dbname = 'books';
 $user = 'mark'; 
 $pass = 'mark';
 $charset = 'utf8mb4';
+//RANDOM TEST
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 $options = [
