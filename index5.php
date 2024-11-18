@@ -70,18 +70,18 @@ $stmt = $pdo->query($sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Betty's Book Banning and Bridge Building</title>
+    <title>Kasie's Movie Banning and Bridge Building</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero-section">
-        <h1 class="hero-title">Betty's Book Banning and Bridge Building</h1>
-        <p class="hero-subtitle">"Because nothing brings a community together like collectively deciding what others shouldn't read!"</p>
+        <h1 class="hero-title">Kasie's Movie Banning and Bridge Building</h1>
+        <p class="hero-subtitle">"Because nothing brings a community together like collectively deciding what others shouldn't watch!"</p>
         
         <!-- Search moved to hero section -->
         <div class="hero-search">
-            <h2>Search for a Book to Ban</h2>
+            <h2>Search for a Movie to Ban</h2>
             <form action="" method="GET" class="search-form">
                 <label for="search">Search by Title:</label>
                 <input type="text" id="search" name="search" required>
