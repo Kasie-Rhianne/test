@@ -1,9 +1,9 @@
 <?php
 // config.php - Database configuration
 $host = 'localhost'; 
-$dbname = 'books'; 
-$user = 'mark'; 
-$pass = 'mark';
+$dbname = 'movies'; 
+$user = 'kasie'; 
+$pass = 'kasie';
 $charset = 'utf8mb4';
 //RANDOM TEST
 

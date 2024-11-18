@@ -10,9 +10,9 @@ if (!is_logged_in()) {
 }
 
 $host = 'localhost'; 
-$dbname = 'books'; 
-$user = 'mark'; 
-$pass = 'mark';
+$dbname = 'movies'; 
+$user = 'kasie'; 
+$pass = 'kasie';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
@@ -28,7 +28,7 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 
-// Handle book search
+// Handle movie search
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
