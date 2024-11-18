@@ -45,22 +45,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $title = htmlspecialchars($_POST['title']);
         $director = htmlspecialchars($_POST['director']);
         $genre = htmlspecialchars($_POST['genre']);
+        $release_year = htmlspecialchars($_POST['release_year']);
+
         
-        $insert_sql = 'INSERT INTO books (author, title, publisher) VALUES (:author, :title, :publisher)';
+        $insert_sql = 'INSERT INTO movies (title, director, genre, release_year) VALUES (:title, :director, :genre, :release_year)';
         $stmt_insert = $pdo->prepare($insert_sql);
-        $stmt_insert->execute(['author' => $author, 'title' => $title, 'publisher' => $publisher]);
+        $stmt_insert->execute(['title' => $title, 'director' => $director, 'genre' => $genre, 'release_year' => $release_year]);
     } elseif (isset($_POST['delete_id'])) {
         // Delete an entry
         $delete_id = (int) $_POST['delete_id'];
         
-        $delete_sql = 'DELETE FROM books WHERE id = :id';
+        $delete_sql = 'DELETE FROM movies WHERE id = :id';
         $stmt_delete = $pdo->prepare($delete_sql);
         $stmt_delete->execute(['id' => $delete_id]);
     }
 }
 
-// Get all books for main table
-$sql = 'SELECT id, author, title, publisher FROM books';
+// Get all movies for main table
+$sql = 'SELECT id, title, director, genre, release_year FROM movies';
 $stmt = $pdo->query($sql);
 ?>
 
@@ -94,9 +96,9 @@ $stmt = $pdo->query($sql);
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Author</th>
+                                    <th>title</th>
                                     <th>Title</th>
-                                    <th>Publisher</th>
+                                    <th>genre</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -104,9 +106,9 @@ $stmt = $pdo->query($sql);
                                 <?php foreach ($search_results as $row): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['author']); ?></td>
                                     <td><?php echo htmlspecialchars($row['title']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['publisher']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['title']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['genre']); ?></td>
                                     <td>
                                         <form action="index5.php" method="post" style="display:inline;">
                                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
@@ -132,9 +134,9 @@ $stmt = $pdo->query($sql);
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Author</th>
+                    <th>title</th>
                     <th>Title</th>
-                    <th>Publisher</th>
+                    <th>genre</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -142,9 +144,9 @@ $stmt = $pdo->query($sql);
                 <?php while ($row = $stmt->fetch()): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['author']); ?></td>
                     <td><?php echo htmlspecialchars($row['title']); ?></td>
-                    <td><?php echo htmlspecialchars($row['publisher']); ?></td>
+                    <td><?php echo htmlspecialchars($row['title']); ?></td>
+                    <td><?php echo htmlspecialchars($row['genre']); ?></td>
                     <td>
                         <form action="index5.php" method="post" style="display:inline;">
                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
@@ -161,14 +163,14 @@ $stmt = $pdo->query($sql);
     <div class="form-container">
         <h2>Condemn a Book Today</h2>
         <form action="index5.php" method="post">
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" required>
+            <label for="title">title:</label>
+            <input type="text" id="title" name="title" required>
             <br><br>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
             <br><br>
-            <label for="publisher">Publisher:</label>
-            <input type="text" id="publisher" name="publisher" required>
+            <label for="genre">genre:</label>
+            <input type="text" id="genre" name="genre" required>
             <br><br>
             <input type="submit" value="Condemn Book">
         </form>
