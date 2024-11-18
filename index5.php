@@ -96,10 +96,10 @@ $stmt = $pdo->query($sql);
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>title</th>
-                                    <th>Title</th>
-                                    <th>genre</th>
-                                    <th>Actions</th>
+                                    <th>Titles</th>
+                                    <th>Director</th>
+                                    <th>Genre</th>
+                                    <th>Realease Year</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,8 +107,10 @@ $stmt = $pdo->query($sql);
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
                                     <td><?php echo htmlspecialchars($row['title']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['title']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['director']); ?></td>
                                     <td><?php echo htmlspecialchars($row['genre']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['release_year']); ?></td>
+
                                     <td>
                                         <form action="index5.php" method="post" style="display:inline;">
                                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
@@ -120,7 +122,7 @@ $stmt = $pdo->query($sql);
                             </tbody>
                         </table>
                     <?php else: ?>
-                        <p>No books found matching your search.</p>
+                        <p>No movies found matching your search.</p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
@@ -129,15 +131,15 @@ $stmt = $pdo->query($sql);
 
     <!-- Table section with container -->
     <div class="table-container">
-        <h2>All Books in Database</h2>
+        <h2>All Movies in Database</h2>
         <table class="half-width-left-align">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>title</th>
-                    <th>Title</th>
-                    <th>genre</th>
-                    <th>Actions</th>
+                    <th>Titles</th>
+                    <th>Director</th>
+                    <th>Genre</th>
+                    <th>Release Year</th>
                 </tr>
             </thead>
             <tbody>
@@ -145,8 +147,10 @@ $stmt = $pdo->query($sql);
                 <tr>
                     <td><?php echo htmlspecialchars($row['id']); ?></td>
                     <td><?php echo htmlspecialchars($row['title']); ?></td>
-                    <td><?php echo htmlspecialchars($row['title']); ?></td>
+                    <td><?php echo htmlspecialchars($row['director']); ?></td>
                     <td><?php echo htmlspecialchars($row['genre']); ?></td>
+                    <td><?php echo htmlspecialchars($row['release_year']); ?></td>
+
                     <td>
                         <form action="index5.php" method="post" style="display:inline;">
                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
@@ -161,18 +165,21 @@ $stmt = $pdo->query($sql);
 
     <!-- Form section with container -->
     <div class="form-container">
-        <h2>Condemn a Book Today</h2>
+        <h2>Condemn a Movie Today</h2>
         <form action="index5.php" method="post">
-            <label for="title">title:</label>
+            <label for="title">Movie Title:</label>
             <input type="text" id="title" name="title" required>
             <br><br>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+            <label for="director">Director:</label>
+            <input type="text" id="director" name="director" required>
             <br><br>
-            <label for="genre">genre:</label>
+            <label for="genre">Genre:</label>
             <input type="text" id="genre" name="genre" required>
             <br><br>
-            <input type="submit" value="Condemn Book">
+            <label for="release_year">Release Year:</label>
+            <input type="text" id="release_year" name="release_year" required>
+            <br><br>
+            <input type="submit" value="Condemn Movie">
         </form>
     </div>
 </body>
