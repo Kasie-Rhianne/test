@@ -6,6 +6,7 @@ require_once 'auth.php';
 
 $error_message = '';
 $success_message = '';
+//RANDOM
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['register'])) {
