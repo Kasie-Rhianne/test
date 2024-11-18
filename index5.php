@@ -32,7 +32,7 @@ try {
 $search_results = null;
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = '%' . $_GET['search'] . '%';
-    $search_sql = 'SELECT id, author, title, publisher FROM books WHERE title LIKE :search';
+    $search_sql = 'SELECT id, title, director, genre, release_year FROM movies WHERE title LIKE :search OR director LIKE :search';
     $search_stmt = $pdo->prepare($search_sql);
     $search_stmt->execute(['search' => $search_term]);
     $search_results = $search_stmt->fetchAll();
@@ -40,11 +40,11 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['author']) && isset($_POST['title']) && isset($_POST['publisher'])) {
+    if (isset($_POST['title']) && isset($_POST['director']) && isset($_POST['genre']) && isset($_POST['release_year'])) {
         // Insert new entry
-        $author = htmlspecialchars($_POST['author']);
         $title = htmlspecialchars($_POST['title']);
-        $publisher = htmlspecialchars($_POST['publisher']);
+        $director = htmlspecialchars($_POST['director']);
+        $genre = htmlspecialchars($_POST['genre']);
         
         $insert_sql = 'INSERT INTO books (author, title, publisher) VALUES (:author, :title, :publisher)';
         $stmt_insert = $pdo->prepare($insert_sql);
