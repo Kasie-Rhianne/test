@@ -29,21 +29,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `movies` (
   `id` int NOT NULL,
-  `author` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
   `title` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `publisher` varchar(45) COLLATE utf8mb4_general_ci NOT NULL
+  `director` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `genre` varchar(45) COLLATE utf8mb4_general_ci NOT NULL
+  `release_year` int NOT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `books`
+-- Dumping data for table `movies`
 --
 
-INSERT INTO `books` (`id`, `author`, `title`, `publisher`) VALUES
-(1, 'Miller', 'My Life', 'Penguin'),
-(2, 'Smith', 'Your Life', 'Lion'),
-(3, 'Jones', 'Their Life', 'Penguin'),
-(4, 'Young', 'Nobody\'s Life', 'Ostrich'),
-(5, 'Anderson', 'Their Lives', 'Ostrich'),
+INSERT INTO `movies` (`id`, `title`, `director`, `genre`, 'release_year') VALUES
+(1, 'No Country for Old Men', 'Joel and Ethan Coen', 'Crime, Thriller', '2007'),
+(2, 'Primal Fear', 'Gregory Hoblit', 'Crime, Mystery', '1996'),
+(3, 'Thelma and Louise', 'Ridley Scott', 'Adventure, Crime', '1991'),
+(4, 'Rudy', 'David Anspaugh', 'Biography, Drama, Sport', '1993'),
+(5, 'I, Tonya', 'Craig Gillespie', 'Biography, Drama, Sport', '2018'),
 (6, 'Kettleman', 'Everybody\'s Life', 'Penguin'),
 (7, 'Charleston', 'My Lives', 'Penguin'),
 (8, 'Darby', 'Nobody\'s Lives', 'Otter');
