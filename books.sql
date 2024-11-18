@@ -46,9 +46,9 @@ INSERT INTO `movies` (`id`, `title`, `director`, `genre`, 'release_year') VALUES
 (3, 'Thelma and Louise', 'Ridley Scott', 'Adventure, Crime', '1991'),
 (4, 'Rudy', 'David Anspaugh', 'Biography, Drama, Sport', '1993'),
 (5, 'I, Tonya', 'Craig Gillespie', 'Biography, Drama, Sport', '2018'),
-(6, 'Kettleman', 'Everybody\'s Life', 'Penguin'),
-(7, 'Charleston', 'My Lives', 'Penguin'),
-(8, 'Darby', 'Nobody\'s Lives', 'Otter');
+(6, 'My Cousin Vinny', 'Jonathan Lynn', 'Comedy, Crime', '1992'),
+(7, 'Pineapple Express', 'David Gordon Green', 'Action, Comedy, Crime', '2008'),
+(8, 'The Parent Trap', 'Nancy Meyers', 'Adventure, Comedy', '1998');
 
 -- --------------------------------------------------------
 
@@ -76,9 +76,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 --
 
 --
--- Indexes for table `books`
+-- Indexes for table `movies`
 --
-ALTER TABLE `books`
+ALTER TABLE `movies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -93,9 +93,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `books`
+-- AUTO_INCREMENT for table `movies`
 --
-ALTER TABLE `books`
+ALTER TABLE `movies`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
